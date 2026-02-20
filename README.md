@@ -131,7 +131,7 @@ PQRST-67890-UVWXY-ZABCD
 ## 联系方式
 
 - 作者：myiunagn
-- 邮箱：your.email@example.com
+- 邮箱：myiunagn@outlook.com
 - 项目链接：https://github.com/zhangleyan0413/activation-code-generator
 
 ## 更新日志
