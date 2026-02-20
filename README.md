@@ -1,43 +1,43 @@
-# 激活码生成工具
+# Activation Code Generator
 
-一个功能强大、界面友好的激活码生成工具，支持批量生成、自定义格式、查重等功能。
+A powerful and user-friendly activation code generation tool with batch generation, custom formatting, duplicate checking, and more features.
 
-## 功能特性
+## Features
 
-- 🎯 **灵活的激活码格式**：可自定义段数、每段长度、分隔符
-- 📦 **批量生成**：支持生成1-100,000个激活码，包含快速生成模式
-- 🔍 **重复检测**：自动检测并提示重复的激活码
-- 💾 **智能保存**：支持保存到文件、另存为、自动保存
-- 🎨 **友好的图形界面**：基于wxPython的现代GUI
-- 🔧 **丰富的设置选项**：可自定义字符集、保存路径等
-- ⚡ **快速生成模式**：优化大批量激活码生成速度
-- 🌍 **多语言支持**：支持简体中文、英语、西班牙语、印地语、阿拉伯语、葡萄牙语、俄语、日语、德语、法语
-- 🚀 **跨平台支持**：包含Windows、Linux、macOS的启动脚本
-- 🛠️ **自动环境检测**：自动检测并安装Python和依赖库
+- 🎯 **Flexible Activation Code Format**: Customizable segments, segment length, and delimiter
+- 📦 **Batch Generation**: Supports generating 1-100,000 activation codes with fast generation mode
+- 🔍 **Duplicate Detection**: Automatically detects and alerts duplicate activation codes
+- 💾 **Smart Saving**: Supports saving to file, save as, and auto-save
+- 🎨 **Friendly Graphical Interface**: Modern GUI based on wxPython
+- 🔧 **Rich Setting Options**: Customizable character set, save path, etc.
+- ⚡ **Fast Generation Mode**: Optimizes generation speed for large batches of activation codes
+- 🌍 **Multi-language Support**: Supports Simplified Chinese, English, Spanish, Hindi, Arabic, Portuguese, Russian, Japanese, German, and French
+- 🚀 **Cross-platform Support**: Includes startup scripts for Windows, Linux, and macOS
+- 🛠️ **Auto Environment Detection**: Automatically detects and installs Python and dependencies
 
-## 安装说明
+## Installation Instructions
 
-### 环境要求
+### Environment Requirements
 
 - Python 3.6+
 - wxPython
 
-### 安装步骤
+### Installation Steps
 
-1. **克隆项目**
+1. **Clone the project**
 
 ```bash
 git clone https://github.com/zhangleyan0413/activation-code-generator.git
 cd activation-code-generator
 ```
 
-2. **安装依赖**
+2. **Install dependencies**
 
 ```bash
 pip install wxPython
 ```
 
-3. **运行程序**
+3. **Run the program**
 
 ```bash
 # Windows
@@ -51,70 +51,70 @@ chmod +x run.sh
 chmod +x run.command
 ./run.command
 
-# 或直接运行
+# Or run directly
 python main.py
 ```
 
-## 使用方法
+## Usage Guide
 
-### 基本使用
+### Basic Usage
 
-1. **生成激活码**
-   - 在主界面输入要生成的激活码数量
-   - 点击「生成激活码」按钮
-   - 生成的激活码会显示在下方文本框中
+1. **Generate Activation Codes**
+   - Enter the number of activation codes to generate in the main interface
+   - Click the "Generate Codes" button
+   - The generated activation codes will be displayed in the text box below
 
-2. **保存激活码**
-   - 点击「保存到文件」按钮
-   - 激活码会保存到 `激活码.txt` 文件中
+2. **Save Activation Codes**
+   - Click the "Save to File" button
+   - Activation codes will be saved to the `激活码.txt` file
 
-### 高级功能
+### Advanced Features
 
-1. **批量生成**
-   - 通过菜单「工具 → 批量生成...」打开批量生成对话框
-   - 设置生成数量（最多100,000个）
-   - 选择是否使用快速生成模式
-   - 点击「生成」按钮
+1. **Batch Generation**
+   - Open the batch generation dialog through the menu "Tools → Batch Generate..."
+   - Set the generation quantity (up to 100,000)
+   - Select whether to use fast generation mode
+   - Click the "Generate" button
 
-2. **自定义设置**
-   - 通过菜单「工具 → 设置...」打开设置对话框
-   - 自定义激活码格式、字符集、保存路径等
-   - 点击「确定」保存设置
+2. **Custom Settings**
+   - Open the settings dialog through the menu "Tools → Settings..."
+   - Customize activation code format, character set, save path, etc.
+   - Click "OK" to save settings
 
-3. **另存为**
-   - 通过菜单「文件 → 另存为...」打开另存为对话框
-   - 选择保存路径和文件名
-   - 点击「保存」按钮
+3. **Save As**
+   - Open the save as dialog through the menu "File → Save As..."
+   - Select save path and file name
+   - Click the "Save" button
 
-4. **打开文件**
-   - 通过菜单「文件 → 打开...」打开激活码文件
-   - 程序会自动检测文件中的重复激活码
+4. **Open File**
+   - Open an activation code file through the menu "File → Open..."
+   - The program will automatically detect duplicate activation codes in the file
 
-## 界面预览
+## Interface Preview
 
-![主界面](images/prtsc1.png)
+![Main Interface](images/prtsc1.png)
 
-![批量生成](images/prtsc2.png)
+![Batch Generation](images/prtsc2.png)
 
-![设置界面](images/prtsc3.png)
+![Settings Interface](images/prtsc3.png)
 
-## 激活码格式
+## Activation Code Format
 
-默认格式：`XXXXX-XXXXX-XXXXX-XXXXX`
+Default format: `XXXXX-XXXXX-XXXXX-XXXXX`
 
-- 每段5个字符
-- 使用 `-` 作为分隔符
-- 包含数字和大写字母
+- 5 characters per segment
+- Uses `-` as delimiter
+- Includes numbers and uppercase letters
 
-可通过设置自定义格式，支持：
-- 1-10段激活码
-- 每段1-10个字符
-- 自定义分隔符
-- 可选字符集（数字、大小写字母、特殊字符）
+Custom formats are supported:
+- 1-10 activation code segments
+- 1-10 characters per segment
+- Custom delimiters
+- Optional character sets (numbers, uppercase/lowercase letters, special characters)
 
-## 保存格式
+## Save Format
 
-激活码会保存为以下格式：
+Activation codes will be saved in the following format:
 
 ```
 生成时间：2026-02-20 12:00:00
@@ -125,49 +125,49 @@ PQRST-67890-UVWXY-ZABCD
 --------------------------------------------------
 ```
 
-## 贡献指南
+## Contribution Guide
 
-欢迎贡献代码和提出问题！
+Contributions and issues are welcome!
 
-1. Fork 本项目
-2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开 Pull Request
+1. Fork this project
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 详情见 [LICENSE](LICENSE) 文件
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## 联系方式
+## Contact
 
-- 作者：myiunagn
-- 邮箱：myiunagn@outlook.com
-- 项目链接：https://github.com/zhangleyan0413/activation-code-generator
+- Author: myiunagn
+- Email: myiunagn@outlook.com
+- Project link: https://github.com/zhangleyan0413/activation-code-generator
 
-## 更新日志
+## Changelog
 
 ### v1.1.0
-- ✨ 添加多语言支持，支持世界使用率前十的语言
-- 🚀 添加跨平台启动脚本（Windows、Linux、macOS）
-- 🛠️ 添加自动环境检测，自动安装Python和依赖库
-- 🎨 优化界面文本，确保所有页面支持多语言
-- ✨ 提升批量生成数量上限至100,000,000,000
-- 🎯 完善设置对话框，支持语言切换
+- ✨ Added multi-language support, supporting the top 10 most used languages in the world
+- 🚀 Added cross-platform startup scripts (Windows, Linux, macOS)
+- 🛠️ Added auto environment detection, automatically installing Python and dependencies
+- 🎨 Optimized interface text to ensure all pages support multiple languages
+- ✨ Increased batch generation limit to 100,000,000,000
+- 🎯 Improved settings dialog, supporting language switching
 
 ### v1.0.2
-- ✨ 添加快速生成模式，优化大批量激活码生成速度
-- ✨ 添加另存为功能
-- 🐛 修复乱码问题
-- 🎨 完善批量生成对话框
+- ✨ Added fast generation mode to optimize generation speed for large batches of activation codes
+- ✨ Added save as functionality
+- 🐛 Fixed garbled code issues
+- 🎨 Improved batch generation dialog
 
 ### v1.0.1
-- ✨ 添加重复检测功能
-- ✨ 添加菜单栏
-- 🎨 改进界面布局
+- ✨ Added duplicate detection functionality
+- ✨ Added menu bar
+- 🎨 Improved interface layout
 
 ### v1.0.0
-- 🎉 初始版本发布
-- ✨ 基本激活码生成功能
-- ✨ 批量生成功能
-- ✨ 保存到文件功能
+- 🎉 Initial version release
+- ✨ Basic activation code generation functionality
+- ✨ Batch generation functionality
+- ✨ Save to file functionality
