@@ -81,11 +81,11 @@ python main.py
 
 ## 界面预览
 
-![主界面](https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=activation%20code%20generator%20application%20main%20interface%20with%20wxPython%20GUI%2C%20showing%20input%20field%2C%20generate%20button%2C%20and%20output%20text%20area&image_size=square)
+![主界面](images/prtsc1.png)
 
-![批量生成](https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=batch%20generate%20dialog%20for%20activation%20code%20generator%2C%20showing%20count%20input%20and%20options&image_size=square)
+![批量生成](images/prtsc2.png)
 
-![设置界面](https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=settings%20dialog%20for%20activation%20code%20generator%2C%20showing%20format%20and%20charset%20options&image_size=square)
+![设置界面](images/prtsc3.png)
 
 ## 激活码格式
 
@@ -131,7 +131,7 @@ PQRST-67890-UVWXY-ZABCD
 ## 联系方式
 
 - 作者：myiunagn
-- 邮箱：myiunagn@outlook.com
+- 邮箱：your.email@example.com
 - 项目链接：https://github.com/zhangleyan0413/activation-code-generator
 
 ## 更新日志
