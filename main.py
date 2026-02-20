@@ -11,7 +11,8 @@ def jhm(cnt, settings=None):
         'include_digits': True,
         'include_uppercase': True,
         'include_lowercase': False,
-        'include_symbols': False
+        'include_symbols': False,
+        'fast_mode': False  # 快速生成模式
     }
     
     # 使用传入的设置或默认设置
@@ -34,18 +35,48 @@ def jhm(cnt, settings=None):
     if not charset:
         charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     
-    lis = []
-    for i in range(cnt):
-        code = ""
-        for j in range(settings['segments']):
-            # 生成每段
-            for k in range(settings['segment_length']):
-                code += random.choice(charset)
-            # 添加分隔符（最后一段除外）
-            if j < settings['segments'] - 1:
-                code += settings['delimiter']
-        lis.append(code)
-    return lis
+    charset_length = len(charset)
+    delimiter = settings['delimiter']
+    segments = settings['segments']
+    segment_length = settings['segment_length']
+    
+    # 快速生成模式
+    if settings['fast_mode'] and cnt > 1000:
+        import string
+        import time
+        
+        # 使用时间戳作为种子，提高批量生成速度
+        random.seed(time.time())
+        
+        lis = []
+        # 预计算每段的字符集索引范围
+        max_index = charset_length - 1
+        
+        for i in range(cnt):
+            # 直接生成每段，减少函数调用开销
+            code_parts = []
+            for j in range(segments):
+                # 快速生成一段字符
+                part = ''.join([charset[random.randint(0, max_index)] for _ in range(segment_length)])
+                code_parts.append(part)
+            # 拼接成完整激活码
+            code = delimiter.join(code_parts)
+            lis.append(code)
+        return lis
+    else:
+        # 标准生成模式
+        lis = []
+        for i in range(cnt):
+            code = ""
+            for j in range(segments):
+                # 生成每段
+                for k in range(segment_length):
+                    code += random.choice(charset)
+                # 添加分隔符（最后一段除外）
+                if j < segments - 1:
+                    code += delimiter
+            lis.append(code)
+        return lis
 
 class ActivationCodeFrame(wx.Frame):
     def __init__(self):
@@ -305,7 +336,7 @@ class ActivationCodeFrame(wx.Frame):
     def on_batch_generate(self, event):
         """批量生成激活码"""
         # 创建批量生成对话框
-        dialog = wx.Dialog(self, title="批量生成激活码", size=(400, 300))
+        dialog = wx.Dialog(self, title="批量生成激活码", size=(400, 400))
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
         # 生成数量设置
@@ -314,14 +345,27 @@ class ActivationCodeFrame(wx.Frame):
         
         count_input_sizer = wx.BoxSizer(wx.HORIZONTAL)
         count_input_sizer.Add(wx.StaticText(dialog, label="数量："), 0, wx.RIGHT, 10)
-        self.batch_count_input = wx.SpinCtrl(dialog, min=1, max=10000, initial=100)
+        self.batch_count_input = wx.SpinCtrl(dialog, min=1, max=10000000000, initial=100000)
         count_input_sizer.Add(self.batch_count_input, 1)
         count_sizer.Add(count_input_sizer, 0, wx.ALL | wx.EXPAND, 5)
         
-        count_info = wx.StaticText(dialog, label="提示：生成大量激活码可能需要较长时间")
+        count_info = wx.StaticText(dialog, label="提示：生成大量激活码可能需要较长时间，建议分批生成")
         count_sizer.Add(count_info, 0, wx.ALL, 5)
         
         main_sizer.Add(count_sizer, 0, wx.ALL | wx.EXPAND, 10)
+        
+        # 生成选项
+        generate_box = wx.StaticBox(dialog, label="生成选项")
+        generate_sizer = wx.StaticBoxSizer(generate_box, wx.VERTICAL)
+        
+        fast_mode_check = wx.CheckBox(dialog, label="快速生成模式（适合大量生成）")
+        fast_mode_check.SetValue(False)  # 默认不使用快速模式
+        generate_sizer.Add(fast_mode_check, 0, wx.ALL, 5)
+        
+        fast_mode_info = wx.StaticText(dialog, label="提示：快速模式可显著提高生成速度，但随机性略有降低")
+        generate_sizer.Add(fast_mode_info, 0, wx.ALL, 5)
+        
+        main_sizer.Add(generate_sizer, 0, wx.ALL | wx.EXPAND, 10)
         
         # 保存选项
         save_box = wx.StaticBox(dialog, label="保存选项")
@@ -355,10 +399,14 @@ class ActivationCodeFrame(wx.Frame):
                     wx.MessageBox("请输入正整数！", "错误", wx.OK | wx.ICON_ERROR)
                     return
                 
+                # 创建临时设置，包含快速生成模式选项
+                temp_settings = self.settings.copy()
+                temp_settings['fast_mode'] = fast_mode_check.GetValue()
+                
                 # 显示进度提示
                 with wx.BusyInfo("正在生成激活码，请稍候..."):
                     # 使用设置生成激活码
-                    new_codes = jhm(cnt, self.settings)
+                    new_codes = jhm(cnt, temp_settings)
                 
                 # 处理清空现有激活码选项
                 if clear_existing_check.GetValue():
