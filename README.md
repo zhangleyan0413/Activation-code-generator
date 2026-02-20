@@ -11,6 +11,9 @@
 - 🎨 **友好的图形界面**：基于wxPython的现代GUI
 - 🔧 **丰富的设置选项**：可自定义字符集、保存路径等
 - ⚡ **快速生成模式**：优化大批量激活码生成速度
+- 🌍 **多语言支持**：支持简体中文、英语、西班牙语、印地语、阿拉伯语、葡萄牙语、俄语、日语、德语、法语
+- 🚀 **跨平台支持**：包含Windows、Linux、macOS的启动脚本
+- 🛠️ **自动环境检测**：自动检测并安装Python和依赖库
 
 ## 安装说明
 
@@ -39,6 +42,14 @@ pip install wxPython
 ```bash
 # Windows
 run.bat
+
+# Linux
+chmod +x run.sh
+./run.sh
+
+# macOS
+chmod +x run.command
+./run.command
 
 # 或直接运行
 python main.py
@@ -135,6 +146,14 @@ PQRST-67890-UVWXY-ZABCD
 - 项目链接：https://github.com/zhangleyan0413/activation-code-generator
 
 ## 更新日志
+
+### v1.1.0
+- ✨ 添加多语言支持，支持世界使用率前十的语言
+- 🚀 添加跨平台启动脚本（Windows、Linux、macOS）
+- 🛠️ 添加自动环境检测，自动安装Python和依赖库
+- 🎨 优化界面文本，确保所有页面支持多语言
+- ✨ 提升批量生成数量上限至100,000,000,000
+- 🎯 完善设置对话框，支持语言切换
 
 ### v1.0.2
 - ✨ 添加快速生成模式，优化大批量激活码生成速度

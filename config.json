@@ -1,0 +1,13 @@
+{
+  "segments": 4,
+  "segment_length": 5,
+  "delimiter": "-",
+  "include_digits": true,
+  "include_uppercase": true,
+  "include_lowercase": false,
+  "include_symbols": false,
+  "save_path": "激活码.txt",
+  "auto_save": false,
+  "add_timestamp": true,
+  "language": "zh_CN"
+}
